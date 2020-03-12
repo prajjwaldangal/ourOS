@@ -27,6 +27,21 @@ os.iso: kernel.elf
 run: os.iso
 	timeout 10s bochs -f bochsrc.txt -q
 
+run_sub:
+	ld $(LDFLAGS) $(OBJECTS) -o kernel.elf
+	cp kernel.elf iso/boot/kernel.elf
+	genisoimage -R                              \
+		-b boot/grub/stage2_eltorito    \
+		-no-emul-boot                   \
+		-boot-load-size 4               \
+		-A os                           \
+		-input-charset utf8             \
+		-quiet                          \
+		-boot-info-table                \
+		-o os.iso                       \
+		iso
+	timeout 10s bochs -f bochsrc.txt -q
+
 %.o: %.c
 	$(CC) $(CFLAGS)  $< -o $@
 

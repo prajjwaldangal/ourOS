@@ -21,5 +21,13 @@
         resb KERNEL_STACK_SIZE                  ; reserve stack for the kernel
     mov esp, kernel_stack + KERNEL_STACK_SIZE   ; point esp to the start of the
                                                 ; stack (end of memory area)
+    
+    push dword 2            ; arg2
+    push dword 1            ; arg1
+    ; The assembly code
+    .globl sum_of_two   ; the function sum_of_two is defined elsewhere
+
+    call sum_of_two       ; call the function, the result will be in eax
+
     .loop:
         jmp .loop                   ; loop forever
