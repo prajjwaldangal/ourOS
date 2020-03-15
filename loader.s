@@ -30,7 +30,7 @@
         call sum_of_two
         pop ebp
         #mov eax, 0
-	mov [0x000B8000], word 0x4128
+	#mov [0x000B8000], word 0x4128
         ret
     .loop:
         jmp .loop                   ; loop forever
