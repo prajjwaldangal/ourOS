@@ -27,8 +27,12 @@ os.iso: kernel.elf
 run: os.iso
 	timeout 10s bochs -f bochsrc.txt -q
 
-run_sub:
-	ld $(LDFLAGS) $(OBJECTS) -o kernel.elf
+runSub:
+	# Compile the loader (.s file) into 32 bit ELF (.o file): 
+	nasm -f elf32 loader.s
+	# Link the loader as: 
+	ld -T link.ld -melf_i386 loader.o -o kernel.elf
+	#ld $(LDFLAGS) $(OBJECTS) -o kernel.elf
 	cp kernel.elf iso/boot/kernel.elf
 	genisoimage -R                              \
 		-b boot/grub/stage2_eltorito    \
@@ -40,8 +44,8 @@ run_sub:
 		-boot-info-table                \
 		-o os.iso                       \
 		iso
-	timeout 10s bochs -f bochsrc.txt -q
-
+	#timeout 10s bochs -f bochsrc.txt -q
+	#cat bochslog.txt
 %.o: %.c
 	$(CC) $(CFLAGS)  $< -o $@
 
