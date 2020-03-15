@@ -24,13 +24,16 @@
                                                 ; stack (end of memory area)
     main:
         push ebp ; Push stack
-        push dword 2            ; arg2
+        mov     ebp, esp  ; initialize new call frame
+
+	push dword 2            ; arg2
         push dword 1 
         mov eax,0
         call sum_of_two
-        pop ebp
-        #mov eax, 0
-	#mov [0x000B8000], word 0x4128
+        mov     esp, ebp
+	pop ebp
+        ;mov eax, 0
+	;mov [0x000B8000], word 0x4128
         ret
     .loop:
         jmp .loop                   ; loop forever
