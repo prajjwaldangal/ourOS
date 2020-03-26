@@ -32,7 +32,6 @@ runSub:
 	nasm -f elf32 loader.s
 	# Link the loader as: 
 	ld -T link.ld -melf_i386 loader.o -o kernel.elf
-	#ld $(LDFLAGS) $(OBJECTS) -o kernel.elf
 	cp kernel.elf iso/boot/kernel.elf
 	genisoimage -R                              \
 		-b boot/grub/stage2_eltorito    \
@@ -45,7 +44,7 @@ runSub:
 		-o os.iso                       \
 		iso
 	#timeout 10s bochs -f bochsrc.txt -q
-	#cat bochslog.txt
+	bochs -f bochsrc.txt -log bochslog.txt  -q
 %.o: %.c
 	$(CC) $(CFLAGS)  $< -o $@
 
