@@ -1,10 +1,10 @@
 
 global main
-extern puts
+extern print
 
 main:
 	mov rdi, message
-	calls puts
+	calls print
 	ret
 
 message
