@@ -30,6 +30,7 @@ run: os.iso
 runSub:
 	# Compile the loader (.s file) into 32 bit ELF (.o file): 
 	nasm -f elf32 loader.s
+	gcc -m32 kmain.c -c -o kmain.o
 	# Link the loader as: 
 	ld -T link.ld -melf_i386 loader.o kmain.o -o kernel.elf
 	cp kernel.elf iso/boot/kernel.elf
