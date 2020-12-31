@@ -22,12 +22,8 @@
         mov esp, kernel_stack + KERNEL_STACK_SIZE       ; point esp to the start of the
                                                                                         ;stack (end of memory area)
         ; The assembly code
-        ; extern sum_of_three   ; the function sum_of_three is defined elsewhere
-        push dword 3            ; arg3
-        push dword 3            ; arg2
-        push dword 3            ; arg1
-        call sum_of_three       ; call the function, the result will be in eax
-
+        mov [0x000B8000], dword 0x4128
+        mov [0x000B800F], dword 0x4228
     .loop:
         jmp .loop                   ; loop forever
 ; eax
