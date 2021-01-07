@@ -1,3 +1,5 @@
 .loader.*
 .Makefile.*
 *.iso
+*.o
+*.elf
