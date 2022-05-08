@@ -24,10 +24,10 @@ void say_hello() {
 	int period = 46;
 	int space = 32;
     unsigned int start = 400;
-    
+    unsigned int offset = 2;
     // hello
-    fb_write_cell(start + 0, 72, WHITE, BLACK);
-    fb_write_cell(start + 2, 69, WHITE, BLACK);
+    fb_write_cell(start, 72, WHITE, BLACK);
+    fb_write_cell(start + offset, 69, WHITE, BLACK);
     fb_write_cell(start + 4, 76, WHITE, BLACK);
     fb_write_cell(start + 6, 76, WHITE, BLACK);
     fb_write_cell(start + 8, 79, WHITE, BLACK);
@@ -39,21 +39,21 @@ void say_hello() {
     fb_write_cell(start + 16, 82, WHITE, BLACK);
     fb_write_cell(start + 18, 76, WHITE, BLACK);
     fb_write_cell(start + 20, 68, WHITE, BLACK);
-    // fb_write_cell(start + 24, comma, WHITE, BLACK);
-	fb_write_cell(start + 26, space, WHITE, BLACK);
+    fb_write_cell(start + 22, comma, WHITE, BLACK);
+    fb_write_cell(start + 24, space, WHITE, BLACK);
+    fb_write_cell(start + 26, space, WHITE, BLACK);
+    // OUROS
+    fb_write_cell(start + 28, 79, WHITE, BLACK);
+    fb_write_cell(start + 30, 79+6, WHITE, BLACK);
+    fb_write_cell(start + 32, 82, WHITE, BLACK);
+    fb_write_cell(start + 34, 79, WHITE, BLACK);
+    fb_write_cell(start + 36, 83, WHITE, BLACK);
+    fb_write_cell(start + 38, space, WHITE, BLACK);
 
-	// OUROS
-	fb_write_cell(start + 28, 79, WHITE, BLACK);
-	fb_write_cell(start + 30, 79+6, WHITE, BLACK);
-	fb_write_cell(start + 32, 82, WHITE, BLACK);
-	fb_write_cell(start + 34, 79, WHITE, BLACK);
-	fb_write_cell(start + 36, 83, WHITE, BLACK);
-	fb_write_cell(start + 38, space, WHITE, BLACK);
-
-	// here
-	fb_write_cell(start + 40, 72, WHITE, BLACK);
-	fb_write_cell(start + 42, 69, WHITE, BLACK);
-	fb_write_cell(start + 44, 82, WHITE, BLACK);
-	fb_write_cell(start + 46, 69, WHITE, BLACK);
-	fb_write_cell(start + 48, period, WHITE, BLACK);
+    // here
+    fb_write_cell(start + 40, 72, WHITE, BLACK);
+    fb_write_cell(start + 42, 69, WHITE, BLACK);
+    fb_write_cell(start + 44, 82, WHITE, BLACK);
+    fb_write_cell(start + 46, 69, WHITE, BLACK);
+    fb_write_cell(start + 48, period, WHITE, BLACK);
 }
