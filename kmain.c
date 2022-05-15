@@ -1,4 +1,4 @@
-// #include "io.h"
+#include "io.c"
 #include "fb_write.c"
 
 /* The I/O ports */
@@ -10,21 +10,23 @@
 #define FB_LOW_BYTE_COMMAND     15
 
 /** fb_move_cursor:
- *  Moves the cursor of the framebuffer to the given position
+ *  Moves the cursor of the framebuffer to the given 
+ *       position
  *
  *  @param pos The new position of the cursor
  */
-// void fb_move_cursor(unsigned short pos)
-// {
-//     outb(FB_COMMAND_PORT, FB_HIGH_BYTE_COMMAND);
-//     outb(FB_DATA_PORT,    ((pos >> 8) & 0x00FF));
-//     outb(FB_COMMAND_PORT, FB_LOW_BYTE_COMMAND);
-//     outb(FB_DATA_PORT,    pos & 0x00FF);
-// }
+void fb_move_cursor(unsigned short pos)
+{
+    outb(FB_COMMAND_PORT, FB_HIGH_BYTE_COMMAND);
+    outb(FB_DATA_PORT,    ((pos >> 8) & 0x00FF));
+    outb(FB_COMMAND_PORT, FB_LOW_BYTE_COMMAND);
+    outb(FB_DATA_PORT,    pos & 0x00FF);
+}
 
 /* The C function */
 int _hook()
-{
+{  
+    fb_move_cursor(55);
 	say_hello();
     return 0;
 }
