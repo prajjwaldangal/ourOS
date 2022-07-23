@@ -2,7 +2,7 @@ OBJECTS = loader.o kmain.o
 CC = gcc
 CFLAGS = -m32 -nostdlib -nostdinc -fno-builtin -fno-stack-protector \
         -nostartfiles -nodefaultlibs -Wall -Wextra -Werror -c \
-		-I/home/dev1/ourOS/deps/include 
+		-I/home/dev1/ourOS/deps/include -L/home/dev1/ourOS/deps/lib
 LDFLAGS = -T link.ld -melf_i386 -L/home/dev1/ourOS/deps/lib
 AS = nasm
 ASFLAGS = -f elf
@@ -30,7 +30,6 @@ ourOS:
 	nasm -f elf32 loader.s
 	gcc $(CFLAGS) -m32 kmain.c -c -o kmain.o
 	# Link the loader as: 
-	# ld -T link.ld -melf_i386 loader.o kmain.o -o kernel.elf
 	ld $(LDFLAGS) loader.o kmain.o -o kernel.elf
 	cp kernel.elf iso/boot/kernel.elf
 	genisoimage -R                              \
