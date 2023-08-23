@@ -30,3 +30,13 @@ int _hook()
 	say_hello();
     return 0;
 }
+
+/*
+my typical day at Google:
+9am - reverse a linked list
+11am - count unique ways to climb a staircase with dp
+12pm - lunch
+3pm - help animal escape NxM matrix efficiently
+4pm - invert a binary tree
+5pm - commute home using Dijkstra's
+*/

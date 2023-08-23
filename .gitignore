@@ -1,5 +1,10 @@
 .loader.*
 .Makefile.*
-*.iso
+y
+y.pub
 *.o
 *.elf
+nasm-tutorial/*.asm
+nasm-tutorial/*.o
+nasm-tutorial/*.out
+
