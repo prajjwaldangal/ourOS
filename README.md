@@ -1,7 +1,2 @@
 # ourOS
-Getting my hands dirty with system development by following the link:
-  http://littleosbook.github.io/
-
-The inspiration for this project is the need to do software / system development 
-alongside regular research and also the fact that any digital system runs on an
-OS, more often than not. Feel free to follow along or lead with pace.  
+There may be many embedded operating systems available currently but only a few options when it comes to an open-sourced system with micro-services-based architecture. The compilation of OS images using only the necessary software parts would create a leaner and more efficient software binary. Not only that,  as our devices become more powerful, it is my claim we can trade the computation for ease of troubleshooting. This is especially true in an IoT setting where multiple devices are connected. As a result, functionally separated device clusters would perform better in terms of system availability and uptime.
